@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2021 at 10:41 PM
+-- Generation Time: Jul 08, 2021 at 11:18 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -101,7 +101,8 @@ CREATE TABLE `user_theme_config` (
 --
 
 INSERT INTO `user_theme_config` (`config_id`, `theme`, `user_id`) VALUES
-(1, 'dark', 1);
+(1, 'dark', 1),
+(2, 'white', 2);
 
 --
 -- Indexes for dumped tables
@@ -160,7 +161,7 @@ ALTER TABLE `users_info_id`
 -- AUTO_INCREMENT for table `user_theme_config`
 --
 ALTER TABLE `user_theme_config`
-  MODIFY `config_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `config_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
