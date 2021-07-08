@@ -27,7 +27,7 @@ namespace randomDatabaseWPFprogram
             InitializeComponent();
                 
         }
-        //Chaning colors due to theme change
+        //Changing colors due to theme change
         //Zmiana kolorow ze wzgledu na zmiane motywu
         private void WhiteThemeCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -49,7 +49,7 @@ namespace randomDatabaseWPFprogram
 
         }
 
-        //Chaning colors due to theme change
+        //Changing colors due to theme change
         //Zmiana kolorow ze wzgledu na zmiane motywu
         private void WhiteThemeCheckBox_Checked(object sender, RoutedEventArgs e)
         {
