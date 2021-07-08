@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 
 namespace randomDatabaseWPFprogram
@@ -74,47 +73,57 @@ namespace randomDatabaseWPFprogram
         //Sprawdzanie danych logowania
         private void user_login_Button_Click(object sender, RoutedEventArgs e)
         {
-            string user_login = user_login_TextBox.Text;
-            string user_password = user_password_TextBox.Password;
-
-
-            string serverConnectionString = "server=localhost;user=root;database=lawfirm;port=3306;password=";
-            string sqlQuery = $"SELECT COUNT(u.login) FROM users u WHERE u.login = '{user_login}' AND u.password = '{user_password}'";
-
-            MySqlConnection sqlConnection = new MySqlConnection(serverConnectionString);
-
-
             //Trying to execute query to select user
             //Proba odczytu uzytkownika z bazy danych
             try
             {
+                string user_login = user_login_TextBox.Text;
+                string user_password = user_password_TextBox.Password;
+
+
+                string serverConnectionString = "server=localhost;user=root;database=lawfirm;port=3306;password=";
+                string sqlQuery = $"SELECT COUNT(u.login),u.id FROM users u WHERE u.login = '{user_login}' AND u.password = '{user_password}'";
+
+                MySqlConnection sqlConnection = new MySqlConnection(serverConnectionString);
                 // MessageBox.Show(sqlQuery);
                 sqlConnection.Open();
 
                 MySqlCommand sqlCommand = new MySqlCommand(sqlQuery, sqlConnection);
-                object usersResult = sqlCommand.ExecuteScalar();
+                MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
 
-                if (usersResult != null)
+                sqlReader.Read();
+
+                int usersResult = Convert.ToInt32(sqlReader[0]);
+                
+
+
+                switch (usersResult)
                 {
-                    int userResultToInt = Convert.ToInt32(usersResult);
-                    switch (userResultToInt)
-                    {
-                        case 1:
-                            MessageBox.Show("Logged in");
-                            break;
-                        case (0 or > 2):
-                            MessageBox.Show("Login Failed");
-                            break;
-                        default:
-                            break;
-                    }
+                    case 1:
+                        int userID = Convert.ToInt32(sqlReader[1]);
+
+
+                        AfterLoginScreen screen = new AfterLoginScreen(userID);
+                        screen.Show();
+                        this.Close();
+                        sqlConnection.Close();
+                        
+                        break;
+                    case (0 or > 2):
+                        MessageBox.Show("Failed to login");
+                        sqlConnection.Close();
+
+                        break;
+                    default:
+                        break;
                 }
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.ToString()}");
             }
-            sqlConnection.Close();
 
         }
     }
