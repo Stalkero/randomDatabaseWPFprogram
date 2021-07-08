@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:randomDatabaseWPFprogram"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Law Firm: Login" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid x:Name="MW_Grid" Background="#FF323232">
+        <CheckBox x:Name="WhiteThemeCheckBox" Content="White Theme" Unchecked="WhiteThemeCheckBox_Unchecked" Checked="WhiteThemeCheckBox_Checked" HorizontalAlignment="Left" Margin="20,371,0,0" VerticalAlignment="Top" Background="#FF323232" Foreground="#FF9E9E9E" IsChecked="False" />
+        <TextBox x:Name="user_login_TextBox" HorizontalAlignment="Left" Margin="313,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E"/>
+        <TextBlock x:Name="user_login_Label" HorizontalAlignment="Left" Margin="383,149,0,0" Text="Login" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9E9E9E"/>
+        <TextBox x:Name="user_password_TextBox" HorizontalAlignment="Left" Margin="313,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E"/>
+        <TextBlock x:Name="user_password_Label" HorizontalAlignment="Left" Margin="373,204,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9E9E9E"/>
+        <Button x:Name="user_login_Button" Content="Login" HorizontalAlignment="Left" Margin="313,264,0,0" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E" IsCancel="True"/>
 
     </Grid>
 </Window>
