@@ -33,7 +33,7 @@ namespace randomDatabaseWPFprogram
             {
 
                 string serverConnectionString = "server=localhost;user=root;database=lawfirm;port=3306;password=";
-                string themeSelectionQuery = $"SELECT t.theme FROM users u, user_theme_config t WHERE u.id = {userDatabaseId}";
+                string themeSelectionQuery = $"SELECT t.theme FROM users u, user_theme_config t WHERE u.id = {userDatabaseId} AND t.user_id=u.id;";
 
                 MySqlConnection sqlConnection = new MySqlConnection(serverConnectionString);
 
