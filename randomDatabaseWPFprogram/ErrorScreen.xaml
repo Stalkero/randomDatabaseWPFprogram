@@ -1,0 +1,12 @@
+﻿<Window x:Name="ErrorScreenWindow" x:Class="randomDatabaseWPFprogram.ErrorScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:randomDatabaseWPFprogram"
+        mc:Ignorable="d"
+        Title="Error Occurred" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF323232">
+        <TextBlock x:Name="ErrorMessageTextBox" HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Foreground="#FF9E9E9E" Width="750" Height="382" TextAlignment="Left"><Run Language="en-au" Text="wfwfsdfsdfsdfs"/><LineBreak/><Run Language="en-au"/></TextBlock>
+    </Grid>
+</Window>

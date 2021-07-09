@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:randomDatabaseWPFprogram"
         mc:Ignorable="d"
-        Title="AfterLoginScreen" Height="450" Width="800">
+        Title="AfterLoginScreen" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid x:Name="MainScreenGrid" Background="#FF323232">
         <TextBlock x:Name="userID_TextBox" HorizontalAlignment="Left" Margin="330,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF969696"/>
 

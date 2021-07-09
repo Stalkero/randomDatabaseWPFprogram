@@ -110,7 +110,9 @@ namespace randomDatabaseWPFprogram
                         
                         break;
                     case (0 or > 2):
-                        MessageBox.Show("Failed to login");
+
+                        ErrorScreen erorrLoginScreen = new ErrorScreen("Failed to login", "credentials");
+                        erorrLoginScreen.Show();
                         sqlConnection.Close();
 
                         break;
@@ -122,9 +124,12 @@ namespace randomDatabaseWPFprogram
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.ToString()}");
+                ErrorScreen screen = new ErrorScreen(ex.ToString(),"mysql");
+                screen.Show();
+
             }
 
         }
+
     }
 }
