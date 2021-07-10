@@ -19,8 +19,19 @@ namespace randomDatabaseWPFprogram
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
+
+        public class LanguageSelectorBoxStyle
+        {
+            public string LanguageSelectorBoxBGColor { get; set; }
+            public string LanguageSelectorBoxFGColor { get; set; }
+        }
+
+        public string selectedLanguage { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -46,6 +57,12 @@ namespace randomDatabaseWPFprogram
             user_login_Button.Background = new SolidColorBrush(Color.FromRgb(158, 158, 158));
             user_login_Button.Foreground=  new SolidColorBrush(Color.FromRgb(50, 50, 50));
 
+            LanguageSelectorBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+
+            LanguageSelectorBoxStyle boxStyle = new LanguageSelectorBoxStyle { LanguageSelectorBoxBGColor = "#FF323232" ,LanguageSelectorBoxFGColor = "#FF9E9E9E" };
+            
+
+
         }
 
         //Changing colors due to theme change
@@ -64,8 +81,11 @@ namespace randomDatabaseWPFprogram
             user_password_TextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
             user_password_TextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
-            user_login_Button.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             user_login_Button.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+            LanguageSelectorBoxStyle boxStyle = new LanguageSelectorBoxStyle { LanguageSelectorBoxBGColor = "#FFFFFFFF", LanguageSelectorBoxFGColor = "#FF000000" };
+            
+
         }
 
 
@@ -131,5 +151,31 @@ namespace randomDatabaseWPFprogram
 
         }
 
+
+        private void LanguageSelectorBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            selectedLanguage = LanguageSelectorBox.Text;
+
+            switch (selectedLanguage)
+            {
+                case "English":
+                    user_login_Label.Text = "Login";
+                    user_password_Label.Text = "Password";
+                    user_login_Button.Content = "Log in";
+                    WhiteThemeCheckBox.Content = "White theme";
+                    LoginScreenWindow.Title = "Law firm: Log in";
+                    break;
+
+                case "Polski":
+                    user_login_Label.Text = "Login";
+                    user_password_Label.Text = "Hasło";
+                    user_login_Button.Content = "Zaloguj się";
+                    WhiteThemeCheckBox.Content = "Ciemny motyw";
+                    LoginScreenWindow.Title = "Kancelaria prawna: Zaloguj się";
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
