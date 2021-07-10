@@ -42,6 +42,11 @@ namespace randomDatabaseWPFprogram
                             break;
 
                         case "credentials":
+                            if (ErrorMessage == "Failed to login")
+                            {
+                                ErrorMessageTextBox.Text = "Nie udało się zalogować";
+                            }
+
                             ErrorScreenWindow.Title = "Błąd podczas logowania";
                             ErrorScreenWindow.Width = 210;
                             ErrorScreenWindow.Height = 100;
