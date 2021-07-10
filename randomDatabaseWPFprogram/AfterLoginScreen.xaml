@@ -1,13 +1,12 @@
-﻿<Window x:Class="randomDatabaseWPFprogram.AfterLoginScreen"
+﻿<Window x:Name="AfterLoginScreenWindow" x:Class="randomDatabaseWPFprogram.AfterLoginScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:randomDatabaseWPFprogram"
         mc:Ignorable="d"
-        Title="AfterLoginScreen" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="AfterLoginScreen" Height="450" Width="1028" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
     <Grid x:Name="MainScreenGrid" Background="#FF323232">
-        <TextBlock x:Name="userID_TextBox" HorizontalAlignment="Left" Margin="330,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF969696"/>
-
+        <TextBlock x:Name="WelcomeMessageText" HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="977" TextAlignment="Center" Text="WELCOME_NAME_PLACEHOLDER" FontSize="20"/>
     </Grid>
 </Window>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2021 at 03:38 AM
+-- Generation Time: Jul 10, 2021 at 04:10 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -82,7 +82,7 @@ CREATE TABLE `users_info_id` (
 
 INSERT INTO `users_info_id` (`info_id`, `name`, `surname`, `phone`, `role`) VALUES
 (1, 'root', 'root', 'NOT_SET', 'root'),
-(2, 'user', 'user', 'user', 'user\r\n');
+(2, 'John', 'Doe', 'NOT_SET', 'user\r\n');
 
 -- --------------------------------------------------------
 
