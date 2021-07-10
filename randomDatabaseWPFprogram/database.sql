@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2021 at 11:18 PM
+-- Generation Time: Jul 10, 2021 at 03:38 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -87,22 +87,23 @@ INSERT INTO `users_info_id` (`info_id`, `name`, `surname`, `phone`, `role`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_theme_config`
+-- Table structure for table `user_config`
 --
 
-CREATE TABLE `user_theme_config` (
+CREATE TABLE `user_config` (
   `config_id` int(255) NOT NULL,
   `theme` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `lang` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Dumping data for table `user_theme_config`
+-- Dumping data for table `user_config`
 --
 
-INSERT INTO `user_theme_config` (`config_id`, `theme`, `user_id`) VALUES
-(1, 'dark', 1),
-(2, 'white', 2);
+INSERT INTO `user_config` (`config_id`, `theme`, `lang`, `user_id`) VALUES
+(1, 'dark', 'english', 1),
+(2, 'white', 'polish', 2);
 
 --
 -- Indexes for dumped tables
@@ -129,9 +130,9 @@ ALTER TABLE `users_info_id`
   ADD PRIMARY KEY (`info_id`);
 
 --
--- Indexes for table `user_theme_config`
+-- Indexes for table `user_config`
 --
-ALTER TABLE `user_theme_config`
+ALTER TABLE `user_config`
   ADD PRIMARY KEY (`config_id`),
   ADD KEY `userss` (`user_id`);
 
@@ -158,9 +159,9 @@ ALTER TABLE `users_info_id`
   MODIFY `info_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_theme_config`
+-- AUTO_INCREMENT for table `user_config`
 --
-ALTER TABLE `user_theme_config`
+ALTER TABLE `user_config`
   MODIFY `config_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -180,9 +181,9 @@ ALTER TABLE `users_documents`
   ADD CONSTRAINT `users` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `user_theme_config`
+-- Constraints for table `user_config`
 --
-ALTER TABLE `user_theme_config`
+ALTER TABLE `user_config`
   ADD CONSTRAINT `userss` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
