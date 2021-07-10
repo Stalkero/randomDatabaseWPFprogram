@@ -28,6 +28,7 @@ namespace randomDatabaseWPFprogram
             public string title { get; set; }
             public string creationDate { get; set; }
             public string recipients { get; set; }
+            public string DB_ID { get; set; }
         }
 
         public class RecipientsJson
@@ -108,6 +109,11 @@ namespace randomDatabaseWPFprogram
                             LastDocumentsDataGrid.Columns[0].Header = "Tytuł";
                             LastDocumentsDataGrid.Columns[1].Header = "Data Utworzenia";
                             LastDocumentsDataGrid.Columns[2].Header = "Odbiorcy";
+                            LastDocumentsDataGrid.Columns[3].Header = "DB_ID";
+                            Add_new_document_BTN.Content = "Dodaj nowy dokument";
+                            Change_settings_btn.Content = "Zmień ustawienia";
+
+                            AfterLoginScreenWindow.Title = "Kancelaria Prawna: Menu główne";
 
                             break;
 
@@ -121,6 +127,10 @@ namespace randomDatabaseWPFprogram
                             LastDocumentsDataGrid.Columns[0].Header = "Title";
                             LastDocumentsDataGrid.Columns[1].Header = "Creation Date";
                             LastDocumentsDataGrid.Columns[2].Header = "Recipients";
+                            LastDocumentsDataGrid.Columns[3].Header = "DB_ID";
+                            Add_new_document_BTN.Content = "Add new documents";
+                            Change_settings_btn.Content = "Change settings";
+                            AfterLoginScreenWindow.Title = "Law Firm: Main menu";
 
                             break;
 
@@ -140,6 +150,10 @@ namespace randomDatabaseWPFprogram
                             EditDocumentLabelTextBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
                             LastDocumentsDataGrid.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
                             LastDocumentsDataGrid.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                            Add_new_document_BTN.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                            Add_new_document_BTN.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+                            Change_settings_btn.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                            Change_settings_btn.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
 
 
@@ -153,6 +167,10 @@ namespace randomDatabaseWPFprogram
                             EditDocumentLabelTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                             LastDocumentsDataGrid.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                             LastDocumentsDataGrid.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                            Add_new_document_BTN.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                            Add_new_document_BTN.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                            Change_settings_btn.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                            Change_settings_btn.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
                             sqlConnection.Close();
                             break;
@@ -181,7 +199,7 @@ namespace randomDatabaseWPFprogram
 
                            
 
-                            LastDocumentsDataGrid.Items.Add(new LastDocumentsDataGridContent() { title = getDocumentsSqlReader[1].ToString(), creationDate = getDocumentsSqlReader[2].ToString(), recipients = getDocumentsSqlReader[3].ToString()}); ;
+                            LastDocumentsDataGrid.Items.Add(new LastDocumentsDataGridContent() { title = getDocumentsSqlReader[1].ToString(), creationDate = getDocumentsSqlReader[2].ToString(), recipients = getDocumentsSqlReader[3].ToString(), DB_ID = getDocumentsSqlReader[0].ToString()}); 
                         }
 
 
@@ -213,6 +231,13 @@ namespace randomDatabaseWPFprogram
 
 
 
+        }
+
+        private void EditDocumentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LastDocumentsDataGridContent content = (LastDocumentsDataGridContent)LastDocumentsDataGrid.SelectedItem;
+
+            MessageBox.Show(content.DB_ID);
         }
     }
 }

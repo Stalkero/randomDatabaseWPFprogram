@@ -9,7 +9,7 @@
     <Grid x:Name="MainScreenGrid" Background="#FF323232">
         <TextBlock x:Name="WelcomeMessageText" HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="977" TextAlignment="Center" Text="WELCOME_NAME_PLACEHOLDER" FontSize="20"/>
         <TextBlock x:Name="EditDocumentLabelTextBox" HorizontalAlignment="Left" Margin="26,78,0,0" Text="EDIT_DOCUMENTS_PLCHLDR" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="22" FontSize="15"/>
-        <DataGrid x:Name="LastDocumentsDataGrid" HorizontalAlignment="Center" Height="183" Margin="0,123,0,0" VerticalAlignment="Top" Width="976">
+        <DataGrid x:Name="LastDocumentsDataGrid" HorizontalAlignment="Left" Height="183" Margin="26,118,0,0" VerticalAlignment="Top" Width="708">
 
             <DataGrid.Columns>
 
@@ -17,15 +17,18 @@
                 <DataGridTextColumn Binding="{Binding Path=title}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Path=creationDate}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Path=recipients}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=DB_ID}"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="EditDocumentBtn" Content="✎"/>
+                            <Button x:Name="EditDocumentBtn" Click="EditDocumentBtn_Click" Content="✎"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-            
+
         </DataGrid>
+        <Button x:Name="Add_new_document_BTN" Content="NEW_DOC_PLCHLDR" HorizontalAlignment="Left" Height="30" Margin="26,332,0,0" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="Change_settings_btn" Content="CHG_SETT_PLCHLDR" HorizontalAlignment="Left" Margin="795,118,0,0" VerticalAlignment="Top" Width="207" Height="28"/>
     </Grid>
 </Window>
