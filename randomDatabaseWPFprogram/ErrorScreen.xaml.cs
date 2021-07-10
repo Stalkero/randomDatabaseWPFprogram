@@ -34,7 +34,7 @@ namespace randomDatabaseWPFprogram
                     switch (ErrorType)
                     {
                         case "configFile":
-                            ErrorScreenWindow.Title = "Bład podczas odczytu/zapisu pliku configuracyjnego";
+                            ErrorScreenWindow.Title = "Błąd podczas odczytu/zapisu pliku konfiguracyjnego";
 
                             ErrorScreenWindow.Width = 800;
                             ErrorScreenWindow.Height = 650;
@@ -42,7 +42,7 @@ namespace randomDatabaseWPFprogram
                             break;
 
                         case "credentials":
-                            ErrorScreenWindow.Title = "Bład podczas logowania";
+                            ErrorScreenWindow.Title = "Błąd podczas logowania";
                             ErrorScreenWindow.Width = 210;
                             ErrorScreenWindow.Height = 100;
 
@@ -55,7 +55,7 @@ namespace randomDatabaseWPFprogram
                             ErrorScreenWindow.Width = 800;
                             ErrorScreenWindow.Height = 650;
 
-                            ErrorScreenWindow.Title = "Bład bazy danych";
+                            ErrorScreenWindow.Title = "Błąd bazy danych";
 
                             break;
                         default:
