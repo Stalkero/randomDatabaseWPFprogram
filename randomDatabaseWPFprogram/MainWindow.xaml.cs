@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
 
 namespace randomDatabaseWPFprogram
@@ -24,6 +26,17 @@ namespace randomDatabaseWPFprogram
     public partial class MainWindow : Window
     {
 
+        public class configFile
+        {
+            public string serverAddress { get;set; }
+            public string username { get; set; }
+            public string password { get; set; }
+            public string database { get; set; }
+            public string port { get; set; }
+        }
+
+
+
         public class LanguageSelectorBoxStyle
         {
             public string LanguageSelectorBoxBGColor { get; set; }
@@ -35,7 +48,41 @@ namespace randomDatabaseWPFprogram
         public MainWindow()
         {
             InitializeComponent();
-                
+
+
+
+            selectedLanguage = "English";
+
+
+            //Load config.config
+            //Wcztaj config.config
+            try
+            {
+
+                if (!File.Exists("config.config"))
+                {
+                    configFile configFile = new configFile();
+
+                    configFile.serverAddress = "127.0.0.1";
+                    configFile.username = "root";
+                    configFile.password = "";
+                    configFile.database = "lawfirm";
+                    configFile.port = "3306";
+
+
+                    string configInJSON = JsonConvert.SerializeObject(configFile);
+
+
+                    File.WriteAllText("config.config", configInJSON);
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "configFile",selectedLanguage);
+            }
         }
         //Changing colors due to theme change
         //Zmiana kolorow ze wzgledu na zmiane motywu
@@ -60,9 +107,6 @@ namespace randomDatabaseWPFprogram
             LanguageSelectorBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
             LanguageSelectorBoxStyle boxStyle = new LanguageSelectorBoxStyle { LanguageSelectorBoxBGColor = "#FF323232" ,LanguageSelectorBoxFGColor = "#FF9E9E9E" };
-            
-
-
         }
 
         //Changing colors due to theme change
@@ -95,61 +139,71 @@ namespace randomDatabaseWPFprogram
         {
             //Trying to execute query to select user
             //Proba odczytu uzytkownika z bazy danych
+
             try
             {
                 string user_login = user_login_TextBox.Text;
                 string user_password = user_password_TextBox.Password;
 
+                string readedConfigFile = File.ReadAllText("config.config");
+                configFile ConfigFile = JsonConvert.DeserializeObject<configFile>(readedConfigFile);
 
-                string serverConnectionString = "server=localhost;user=root;database=lawfirm;port=3306;password=";
+                string serverConnectionString = $"server={ConfigFile.serverAddress};user={ConfigFile.username};database={ConfigFile.database};port={ConfigFile.port};password={ConfigFile.password}";
                 string sqlQuery = $"SELECT COUNT(u.login),u.id FROM users u WHERE u.login = '{user_login}' AND u.password = '{user_password}'";
 
-                MySqlConnection sqlConnection = new MySqlConnection(serverConnectionString);
-                // MessageBox.Show(sqlQuery);
-                sqlConnection.Open();
 
-                MySqlCommand sqlCommand = new MySqlCommand(sqlQuery, sqlConnection);
-                MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-
-                sqlReader.Read();
-
-                int usersResult = Convert.ToInt32(sqlReader[0]);
-                
-
-
-                switch (usersResult)
+                try
                 {
-                    case 1:
-                        int userID = Convert.ToInt32(sqlReader[1]);
+                    MySqlConnection sqlConnection = new MySqlConnection(serverConnectionString);
+                    // MessageBox.Show(sqlQuery);
+                    sqlConnection.Open();
+
+                    MySqlCommand sqlCommand = new MySqlCommand(sqlQuery, sqlConnection);
+                    MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
+
+                    sqlReader.Read();
+
+                    int usersResult = Convert.ToInt32(sqlReader[0]);
 
 
-                        AfterLoginScreen screen = new AfterLoginScreen(userID);
-                        screen.Show();
-                        this.Close();
-                        sqlConnection.Close();
-                        
-                        break;
-                    case (0 or > 2):
 
-                        ErrorScreen erorrLoginScreen = new ErrorScreen("Failed to login", "credentials");
-                        erorrLoginScreen.Show();
-                        sqlConnection.Close();
+                    switch (usersResult)
+                    {
+                        case 1:
+                            int userID = Convert.ToInt32(sqlReader[1]);
 
-                        break;
-                    default:
-                        break;
+                            AfterLoginScreen screen = new AfterLoginScreen(userID);
+                            screen.Show();
+                            this.Close();
+                            sqlConnection.Close();
+
+                            break;
+                        case (0 or > 2):
+                            ErrorScreen erorrLoginScreen = new ErrorScreen("Failed to login", "credentials",selectedLanguage);
+                            erorrLoginScreen.Show();
+                            sqlConnection.Close();
+
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "mysql", selectedLanguage);
+                    errorScreen.Show();
                 }
 
 
             }
-            catch (Exception ex)
-            {
-                ErrorScreen screen = new ErrorScreen(ex.ToString(),"mysql");
-                screen.Show();
 
-            }
-
+            
+        catch (Exception ex)
+        { 
+            ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "configFile", selectedLanguage);
         }
+
+    }
 
 
         private void LanguageSelectorBox_MouseLeave(object sender, MouseEventArgs e)
