@@ -33,6 +33,13 @@ namespace randomDatabaseWPFprogram
 
                     switch (ErrorType)
                     {
+                        case "gettingDocuments":
+                            ErrorScreenWindow.Width = 800;
+                            ErrorScreenWindow.Height = 650;
+
+                            ErrorScreenWindow.Title = "Nie udało się pobrać dokumentów";
+                            break;
+
                         case "configFile":
                             ErrorScreenWindow.Title = "Błąd podczas odczytu/zapisu pliku konfiguracyjnego";
 
@@ -74,6 +81,13 @@ namespace randomDatabaseWPFprogram
 
                     switch (ErrorType)
                     {
+                        case "gettingDocuments":
+                            ErrorScreenWindow.Width = 800;
+                            ErrorScreenWindow.Height = 650;
+
+                            ErrorScreenWindow.Title = "Failed to retrieve documents";
+                            break;
+
                         case "configFile":
                             ErrorScreenWindow.Title = "Error while reading/saving configuration file";
 

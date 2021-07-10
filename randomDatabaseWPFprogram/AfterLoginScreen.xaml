@@ -8,5 +8,24 @@
         Title="AfterLoginScreen" Height="450" Width="1028" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
     <Grid x:Name="MainScreenGrid" Background="#FF323232">
         <TextBlock x:Name="WelcomeMessageText" HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="977" TextAlignment="Center" Text="WELCOME_NAME_PLACEHOLDER" FontSize="20"/>
+        <TextBlock x:Name="EditDocumentLabelTextBox" HorizontalAlignment="Left" Margin="26,78,0,0" Text="EDIT_DOCUMENTS_PLCHLDR" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="22" FontSize="15"/>
+        <DataGrid x:Name="LastDocumentsDataGrid" HorizontalAlignment="Center" Height="183" Margin="0,123,0,0" VerticalAlignment="Top" Width="976">
+
+            <DataGrid.Columns>
+
+
+                <DataGridTextColumn Binding="{Binding Path=title}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=creationDate}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=recipients}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="EditDocumentBtn" Content="✎"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
     </Grid>
 </Window>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2021 at 04:10 AM
+-- Generation Time: Jul 10, 2021 at 07:13 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -50,17 +50,19 @@ INSERT INTO `users` (`id`, `login`, `password`, `users_info_id`) VALUES
 
 CREATE TABLE `users_documents` (
   `document_id` int(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `message` longtext COLLATE utf8mb4_bin NOT NULL,
   `creator_id` int(255) NOT NULL,
-  `recipients` longtext COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`recipients`))
+  `recipients` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `creationDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `users_documents`
 --
 
-INSERT INTO `users_documents` (`document_id`, `message`, `creator_id`, `recipients`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus purus lacus, ultrices ut mollis sed, convallis ac arcu. Sed id vehicula tortor. Aenean sed ante vel nisl aliquam lobortis ut ut purus. Sed quis neque libero. Mauris nunc sem, egestas eu orci ut, efficitur lobortis mauris. Quisque vestibulum vulputate eros eu sodales. Nam faucibus imperdiet magna, eu tristique nibh blandit quis. Phasellus id efficitur lectus. Nullam lacinia quam ut ipsum gravida mattis. Fusce viverra elit at nulla cursus, et aliquam orci euismod. Fusce eget dui vel nunc condimentum luctus sed eu diam. Ut sagittis nulla ipsum, quis fringilla ipsum condimentum eget. Pellentesque laoreet, nulla sit amet euismod convallis, lacus lorem tincidunt elit, ut ornare nunc tellus a arcu.\n\nMaecenas quis libero turpis. Pellentesque tristique imperdiet ante vel dictum. Duis sed odio elit. Vestibulum quis vestibulum magna. Fusce eu dui tellus. Aenean turpis urna, aliquam quis fringilla pellentesque, congue a massa. Aenean elit ex, pellentesque in semper vitae, efficitur bibendum diam. Nulla arcu risus, elementum sit amet eros eget, convallis varius odio. Maecenas egestas ex tempus ipsum sollicitudin, a porttitor dui efficitur. Donec laoreet nisi ac euismod posuere. Nullam commodo quis sem in vehicula. Suspendisse et nisl nec risus consequat aliquet. Phasellus vitae vehicula arcu, sed interdum ex.\n\nAliquam imperdiet, velit sed scelerisque consectetur, elit massa mattis ex, id posuere erat metus imperdiet neque. Duis non justo efficitur, sodales ipsum vitae, commodo ligula. Nulla facilisi. Maecenas gravida lectus leo, vel volutpat libero fermentum quis. Duis at metus sed tortor dictum fringilla. Suspendisse lorem purus, tempus eget rutrum in, scelerisque non arcu. In tempor ante at finibus laoreet.\n\nMaecenas tristique imperdiet sem, quis hendrerit nulla dapibus vel. Etiam quis erat ut justo porta volutpat vitae sit amet tortor. Sed arcu odio, condimentum id eleifend vel, ornare eu risus. Quisque nec dolor at nibh sollicitudin dapibus. Curabitur aliquam augue pretium aliquam luctus. Aliquam erat volutpat. Curabitur semper mauris metus, quis bibendum justo sollicitudin sed. Proin id efficitur tellus.\n\nDonec justo ante, finibus eget ex at, ornare iaculis massa. Donec blandit pharetra velit eu auctor. Nulla facilisi. Donec et odio quis libero laoreet placerat tempor a diam. Nulla magna augue, euismod vel lacinia eu, finibus ut magna. Nam scelerisque, ante vel posuere tempor, mi erat dignissim ipsum, ac tincidunt libero arcu in risus. Donec et tempus nibh, non vestibulum sem. Aliquam consectetur porta ante, a efficitur justo convallis id. Donec id sollicitudin nibh. In ut ipsum tellus. Nam dolor magna, sodales a nulla id, congue vulputate justo. Aenean vel eleifend felis, quis pharetra leo.\n\nCras lorem eros, sollicitudin non suscipit ac, semper bibendum ante. Nam eu dapibus nulla. Aenean egestas dui in lacus dignissim, quis tincidunt dui tincidunt. Maecenas volutpat rutrum neque vitae tincidunt. Proin gravida ornare nunc ut suscipit. Quisque tristique felis nec enim scelerisque, nec sollicitudin sem aliquam. Pellentesque nibh neque, consectetur eu rutrum et, aliquet ut ex. Ut vitae mollis felis.\n\nMaecenas ornare vitae sapien et malesuada. Etiam tempor, ex vel semper varius, massa erat placerat turpis, at eleifend nibh est eget est. Donec cursus sem quis diam suscipit, suscipit faucibus quam hendrerit. Sed congue arcu enim, id volutpat ex tincidunt non. Fusce sodales venenatis leo faucibus fermentum. Etiam eu enim vel nisl eleifend scelerisque et eu eros. Vivamus feugiat, purus et consectetur pretium, lacus sapien ultricies lacus, sed sollicitudin metus lorem vitae dui. Sed ultricies congue nibh vel pulvinar. Mauris turpis turpis, vehicula feugiat pulvinar et, faucibus eu urna. Integer ut congue diam. In elit dolor, venenatis consectetur finibus in, aliquet id justo. Mauris facilisis scelerisque nisi eget placerat. Vestibulum bibendum ligula tellus, a ultrices odio facilisis in. Nullam quis euismod mi, a lacinia turpis.\n\nPellentesque at erat nibh. Phasellus maximus sit amet magna sit amet vulputate. Donec non orci vitae urna iaculis pellentesque non sed eros. Mauris id ligula nisl. Aliquam magna justo, eleifend at enim ut, vehicula gravida purus. In leo quam, facilisis at fringilla vel, congue vel justo. Aliquam ante mauris, scelerisque vitae pretium eu, faucibus luctus mauris.\n\nDonec eget nunc eros. Mauris lectus nibh, pulvinar eget tempus ac, condimentum ut ante. Fusce bibendum varius mauris, vel aliquet ante viverra ac. Integer eu odio tincidunt, volutpat enim ac, viverra sapien. Duis tempor vehicula dolor non dignissim. Nam vehicula mi ut turpis tristique facilisis sit amet at magna. Aenean non egestas urna.\n\nSuspendisse feugiat enim eu purus consequat finibus. Donec tristique est magna, vitae facilisis diam vehicula quis. Mauris elementum feugiat neque, ut consequat magna pellentesque non. Nunc ut turpis scelerisque, luctus metus sollicitudin, molestie erat vel. ', 1, '{\n\"recipients\":[\"Administration\", \"Office\", \"Customers\"]\n}');
+INSERT INTO `users_documents` (`document_id`, `title`, `message`, `creator_id`, `recipients`, `creationDate`) VALUES
+(1, 'asdasdas', 'asdasdasd', 1, 'Administration,Office', '2021-07-10 07:05:26');
 
 -- --------------------------------------------------------
 
