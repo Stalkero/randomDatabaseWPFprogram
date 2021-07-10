@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="config.config">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="database.sql">
       <Generator>MSBuild:Compile</Generator>
     </None>

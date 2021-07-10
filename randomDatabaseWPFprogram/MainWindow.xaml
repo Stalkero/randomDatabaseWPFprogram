@@ -294,7 +294,7 @@
         <TextBox x:Name="user_login_TextBox" HorizontalAlignment="Left" Margin="313,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E"/>
         <TextBlock x:Name="user_login_Label" HorizontalAlignment="Left" Margin="313,149,0,0" Text="Login" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9E9E9E" Width="169" TextAlignment="Center"/>
         <TextBlock x:Name="user_password_Label" HorizontalAlignment="Left" Margin="313,204,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9E9E9E" Width="169" TextAlignment="Center"/>
-        <Button x:Name="user_login_Button" Content="Login" HorizontalAlignment="Left" Margin="313,264,0,0" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E" IsCancel="True" Click="user_login_Button_Click"/>
+        <Button x:Name="user_login_Button" Content="Log in" HorizontalAlignment="Left" Margin="313,264,0,0" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E" IsCancel="True" Click="user_login_Button_Click"/>
         <PasswordBox x:Name="user_password_TextBox" HorizontalAlignment="Left" Margin="313,233,0,0" VerticalAlignment="Top" Width="169" Background="#FF323232" Foreground="#FF9E9E9E"/>
         <ComboBox Style="{DynamicResource LanguageSelectorBoxStyle}"  x:Name="LanguageSelectorBox" HorizontalAlignment="Left" Margin="313,346,0,0" VerticalAlignment="Top" Width="169" MouseLeave="LanguageSelectorBox_MouseLeave" Background="{x:Null}" Foreground="#FF9E9E9E">
             <ComboBox.ItemContainerStyle>
