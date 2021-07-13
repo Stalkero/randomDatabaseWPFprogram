@@ -172,10 +172,12 @@ namespace randomDatabaseWPFprogram
                                 EditDocumentLabelTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                                 LastDocumentsDataGrid.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                                 LastDocumentsDataGrid.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                                Add_new_document_BTN.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                                Add_new_document_BTN.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-                                Change_settings_btn.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                                Change_settings_btn.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+                                Add_new_document_BTN.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                                Add_new_document_BTN.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+                                Change_settings_btn.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                                Change_settings_btn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
                                 sqlConnection.Close();
                                 break;

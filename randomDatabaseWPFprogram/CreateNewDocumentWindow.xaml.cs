@@ -51,13 +51,13 @@ namespace randomDatabaseWPFprogram
                     break;
 
                 case "white":
-                    NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                    CreateNewDocumentLabel.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    CreateNewDocumentLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
                     DocumentFullMessageTextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                     DocumentFullMessageTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
-                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(0,0, 0));
 
                     DocumentTitleLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 

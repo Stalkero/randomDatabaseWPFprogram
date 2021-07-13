@@ -118,6 +118,7 @@ namespace randomDatabaseWPFprogram
             user_password_TextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
             user_login_Button.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            user_login_Button.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
             LanguageSelectorBoxStyle boxStyle = new LanguageSelectorBoxStyle { LanguageSelectorBoxBGColor = "#FFFFFFFF", LanguageSelectorBoxFGColor = "#FF000000" };
         }
