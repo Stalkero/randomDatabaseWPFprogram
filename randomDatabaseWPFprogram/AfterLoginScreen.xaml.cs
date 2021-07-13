@@ -62,6 +62,7 @@ namespace randomDatabaseWPFprogram
         public AfterLoginScreen(int userDatabaseId,string selectedLanguage)
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             try
             {
