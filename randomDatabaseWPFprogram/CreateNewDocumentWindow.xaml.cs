@@ -27,10 +27,42 @@ namespace randomDatabaseWPFprogram
             {
                 case "dark":
                     NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+
+                    switch (programLang)
+                    {
+                        case "polish":
+
+                            NewDocumentWindow.Title = "Stwórz nowy dokument";
+                            break;
+
+
+                        case "english":
+                            NewDocumentWindow.Title = "Create new document";
+                            break;
+
+                        default:
+                            break;
+                    }
+
                     break;
 
                 case "white":
                     NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+                    switch (programLang)
+                    {
+                        case "english":
+                            NewDocumentWindow.Title = "Create new document";
+                            break;
+
+                        case "polish":
+                            NewDocumentWindow.Title = "Stwórz nowy dokument";
+                            break;
+
+                        default:
+                            break;
+                    }
+
                     break;
                 default:
                     break;
