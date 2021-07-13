@@ -22,10 +22,8 @@ namespace randomDatabaseWPFprogram
     /// </summary>
     public partial class AfterLoginScreen : Window
     {
-
         public string selectedLang { get; set; }
         public string selectedTheme { get; set; }
-
 
         public class configFile
         {
@@ -35,8 +33,6 @@ namespace randomDatabaseWPFprogram
             public string database { get; set; }
             public string port { get; set; }
         }
-
-
 
         public class LastDocumentsDataGridContent
         {
@@ -68,14 +64,10 @@ namespace randomDatabaseWPFprogram
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
-
-            
-
             try
             {
                 string readedConfigFile = File.ReadAllText("config.config");
                 configFile ConfigFile = JsonConvert.DeserializeObject<configFile>(readedConfigFile);
-
 
                 //Get which theme user had set 
                 //Zdobac jaki motyw uzytkownik ma ustawiony 
@@ -83,8 +75,6 @@ namespace randomDatabaseWPFprogram
                 {
                     UserConfig config = new UserConfig();
                     UserInfo info = new UserInfo();
-
-
 
                     string serverConnectionString = $"server={ConfigFile.serverAddress};user={ConfigFile.username};database={ConfigFile.database};port={ConfigFile.port};password={ConfigFile.password}";
                     string themeSelectionQuery = $"SELECT c.theme,c.lang,d.name,d.surname FROM users u, user_config c,users_info_id d WHERE u.id = {userDatabaseId} AND c.user_id=u.id and d.info_id=u.id;";
@@ -103,11 +93,8 @@ namespace randomDatabaseWPFprogram
                     object userName = sqlReader[2];
                     object userSurname = sqlReader[3];
 
-
                     if (selectedThemeResults != null && selectedLangResults != null && userName != null && userSurname != null)
-                    {
-
-
+                    { 
                         string selectedThemeResultsToString = Convert.ToString(selectedThemeResults);
                         string selectedLangResultsToString = Convert.ToString(selectedLangResults);
                         string userNameToString = Convert.ToString(userName);
@@ -117,12 +104,8 @@ namespace randomDatabaseWPFprogram
                         info.name = userNameToString;
                         info.surname = userSurnameToString;
 
-
                         selectedLang = selectedLangResultsToString;
                         selectedTheme = selectedThemeResultsToString;
-
-
-
 
                         switch (selectedLangResultsToString)
                         {
@@ -165,9 +148,6 @@ namespace randomDatabaseWPFprogram
                                 break;
                         }
 
-
-
-
                         switch (selectedThemeResultsToString)
                         {
                             case "dark":
@@ -181,8 +161,6 @@ namespace randomDatabaseWPFprogram
                                 Add_new_document_BTN.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
                                 Change_settings_btn.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
                                 Change_settings_btn.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
-
-
 
                                 sqlConnection.Close();
                                 break;
@@ -217,63 +195,35 @@ namespace randomDatabaseWPFprogram
 
                             List<LastDocumentsDataGridContent> contents = new List<LastDocumentsDataGridContent>();
 
-
-
-
-
                             while (getDocumentsSqlReader.Read())
                             {
-
-
-
                                 LastDocumentsDataGrid.Items.Add(new LastDocumentsDataGridContent() { title = getDocumentsSqlReader[1].ToString(), creationDate = getDocumentsSqlReader[2].ToString(), recipients = getDocumentsSqlReader[3].ToString(), DB_ID = getDocumentsSqlReader[0].ToString() });
                             }
 
-
                             getDocumentsSqlConnection.Close();
-
-
-
 
                         }
                         catch (Exception ex)
                         {
                             ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "gettingDocuments", selectedLangResultsToString);
                             errorScreen.Show();
-
-
                         }
                     }
-
-
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
-
             }
             catch (Exception ex)
             {
                 ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "configFile", selectedLanguage);
             }
-
-
-            
-
-
-
-
-
-
         }
 
         private void EditDocumentBtn_Click(object sender, RoutedEventArgs e)
         {
             LastDocumentsDataGridContent content = (LastDocumentsDataGridContent)LastDocumentsDataGrid.SelectedItem;
-
             MessageBox.Show(content.DB_ID);
         }
 

@@ -23,9 +23,6 @@ namespace randomDatabaseWPFprogram
         {
             InitializeComponent();
 
-
-
-
             switch (windowTheme)
             {
                 case "dark":

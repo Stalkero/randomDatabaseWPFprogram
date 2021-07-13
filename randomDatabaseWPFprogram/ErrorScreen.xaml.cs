@@ -50,9 +50,7 @@ namespace randomDatabaseWPFprogram
 
                         case "credentials":
                             if (ErrorMessage == "Failed to login")
-                            {
                                 ErrorMessageTextBox.Text = "Nie udało się zalogować";
-                            }
 
                             ErrorScreenWindow.Title = "Błąd podczas logowania";
                             ErrorScreenWindow.Width = 210;
@@ -61,7 +59,6 @@ namespace randomDatabaseWPFprogram
                             ErrorMessageTextBox.TextAlignment = TextAlignment.Center;
 
                             break;
-
 
                         case "mysql":
                             ErrorScreenWindow.Width = 800;
@@ -73,8 +70,6 @@ namespace randomDatabaseWPFprogram
                         default:
                             break;
                     }
-
-
                     break;
 
                 case "English":
@@ -113,12 +108,9 @@ namespace randomDatabaseWPFprogram
 
                             break;
 
-
                         default:
                             break;
                     }
-
-
 
                     break;
                 default:

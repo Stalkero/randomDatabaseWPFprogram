@@ -10,10 +10,7 @@
         <TextBlock x:Name="WelcomeMessageText" HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="977" TextAlignment="Center" Text="WELCOME_NAME_PLACEHOLDER" FontSize="30"/>
         <TextBlock x:Name="EditDocumentLabelTextBox" HorizontalAlignment="Left" Margin="26,78,0,0" Text="EDIT_DOCUMENTS_PLCHLDR" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" Height="42" FontSize="25"/>
         <DataGrid x:Name="LastDocumentsDataGrid" HorizontalAlignment="Left" Height="431" Margin="26,132,0,0" VerticalAlignment="Top" Width="1564" FontSize="20">
-
             <DataGrid.Columns>
-
-
                 <DataGridTextColumn Binding="{Binding Path=title}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Path=creationDate}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Path=recipients}"></DataGridTextColumn>
@@ -26,7 +23,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-
         </DataGrid>
         <Button x:Name="Add_new_document_BTN" Content="NEW_D`OC_PLCHLDR" HorizontalAlignment="Left" Height="40" Margin="26,612,0,0" VerticalAlignment="Top" Width="1564" Click="Add_new_document_BTN_Click" FontSize="17"/>
         <Button x:Name="Change_settings_btn" Content="CHG_SETT_PLCHLDR" HorizontalAlignment="Left" Margin="1643,118,0,0" VerticalAlignment="Top" Width="260" Height="44" FontSize="20"/>

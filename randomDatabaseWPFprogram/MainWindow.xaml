@@ -307,9 +307,6 @@
             <ComboBoxItem Tag="english" IsSelected="True" >English</ComboBoxItem>
             <ComboBoxItem Tag="polish">Polski</ComboBoxItem>
             <ComboBoxItem Tag="english" >German</ComboBoxItem>
-
         </ComboBox>
-
-
     </Grid>
 </Window>

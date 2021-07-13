@@ -49,8 +49,6 @@ namespace randomDatabaseWPFprogram
         {
             InitializeComponent();
 
-
-
             selectedLanguage = "English";
 
 
@@ -58,7 +56,6 @@ namespace randomDatabaseWPFprogram
             //Wcztaj config.config
             try
             {
-
                 if (!File.Exists("config.config"))
                 {
                     configFile configFile = new configFile();
@@ -69,14 +66,10 @@ namespace randomDatabaseWPFprogram
                     configFile.database = "lawfirm";
                     configFile.port = "3306";
 
-
                     string configInJSON = JsonConvert.SerializeObject(configFile);
 
-
                     File.WriteAllText("config.config", configInJSON);
-
                 }
-
 
             }
             catch (Exception ex)
@@ -92,7 +85,6 @@ namespace randomDatabaseWPFprogram
             WhiteThemeCheckBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
             WhiteThemeCheckBox.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
             
-
             user_login_Label.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
             user_login_TextBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
             user_login_TextBox.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
@@ -128,8 +120,6 @@ namespace randomDatabaseWPFprogram
             user_login_Button.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
             LanguageSelectorBoxStyle boxStyle = new LanguageSelectorBoxStyle { LanguageSelectorBoxBGColor = "#FFFFFFFF", LanguageSelectorBoxFGColor = "#FF000000" };
-            
-
         }
 
 
@@ -165,21 +155,19 @@ namespace randomDatabaseWPFprogram
 
                     int usersResult = Convert.ToInt32(sqlReader[0]);
 
-
-
                     switch (usersResult)
                     {
                         case 1:
                             int userID = Convert.ToInt32(sqlReader[1]);
 
-                            AfterLoginScreen screen = new AfterLoginScreen(userID,selectedLanguage);
+                            AfterLoginScreen screen = new AfterLoginScreen(userID, selectedLanguage);
                             screen.Show();
                             this.Close();
                             sqlConnection.Close();
 
                             break;
                         case (0 or > 2):
-                            ErrorScreen erorrLoginScreen = new ErrorScreen("Failed to login", "credentials",selectedLanguage);
+                            ErrorScreen erorrLoginScreen = new ErrorScreen("Failed to login", "credentials", selectedLanguage);
                             erorrLoginScreen.Show();
                             sqlConnection.Close();
 
@@ -193,8 +181,6 @@ namespace randomDatabaseWPFprogram
                     ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "mysql", selectedLanguage);
                     errorScreen.Show();
                 }
-
-
             }
 
             
