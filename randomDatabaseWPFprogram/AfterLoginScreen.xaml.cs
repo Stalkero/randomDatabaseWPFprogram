@@ -148,6 +148,24 @@ namespace randomDatabaseWPFprogram
 
                                 break;
 
+                            //Please someone add translation for German
+                            case "german":
+                                config.language = "english";
+                                AfterLoginScreenWindow.Title = "English";
+
+                                WelcomeMessageText.Text = $"Welcome {info.name} {info.surname}.";
+                                EditDocumentLabelTextBox.Text = "Edit documents";
+
+                                LastDocumentsDataGrid.Columns[0].Header = "Title";
+                                LastDocumentsDataGrid.Columns[1].Header = "Creation Date";
+                                LastDocumentsDataGrid.Columns[2].Header = "Recipients";
+                                LastDocumentsDataGrid.Columns[3].Header = "DB_ID";
+                                Add_new_document_BTN.Content = "Add new documents";
+                                Change_settings_btn.Content = "Change settings";
+                                AfterLoginScreenWindow.Title = "Law Firm: Main menu";
+
+                                break;
+
                             default:
                                 break;
                         }

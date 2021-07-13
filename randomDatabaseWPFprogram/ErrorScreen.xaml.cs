@@ -113,6 +113,49 @@ namespace randomDatabaseWPFprogram
                     }
 
                     break;
+
+                //Please someone add translation for German
+                case "German":
+
+                    switch (ErrorType)
+                    {
+                        case "gettingDocuments":
+                            ErrorScreenWindow.Width = 800;
+                            ErrorScreenWindow.Height = 650;
+
+                            ErrorScreenWindow.Title = "Failed to retrieve documents";
+                            break;
+
+                        case "configFile":
+                            ErrorScreenWindow.Title = "Error while reading/saving configuration file";
+
+                            ErrorScreenWindow.Width = 800;
+                            ErrorScreenWindow.Height = 650;
+
+                            break;
+
+                        case "credentials":
+                            ErrorScreenWindow.Title = "Error while logging in";
+                            ErrorScreenWindow.Width = 210;
+                            ErrorScreenWindow.Height = 100;
+
+                            ErrorMessageTextBox.TextAlignment = TextAlignment.Center;
+
+                            break;
+
+                        case "mysql":
+                            ErrorScreenWindow.Width = 800;
+                            ErrorScreenWindow.Height = 650;
+
+                            ErrorScreenWindow.Title = "Database error";
+
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    break;
                 default:
                     break;
             }

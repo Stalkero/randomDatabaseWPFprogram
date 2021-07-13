@@ -109,6 +109,18 @@ namespace randomDatabaseWPFprogram
 
             switch (programLang)
             {
+
+                //Please someone add translation for German
+                case "german":
+                    NewDocumentWindow.Title = "Create new document";
+                    CreateNewDocumentLabel.Text = "Create new document";
+                    DocumentMessageLabel.Text = "Contents";
+                    DocumentTitleLabel.Text = "Document title";
+                    RecipientsLabel.Text = "Recipients";
+                    SaveDocumentBtn.Content = "Save document";
+
+                    break;
+
                 case "english":
                     NewDocumentWindow.Title = "Create new document";
                     CreateNewDocumentLabel.Text = "Create new document";
