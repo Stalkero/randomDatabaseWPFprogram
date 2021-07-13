@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:randomDatabaseWPFprogram"
         mc:Ignorable="d"
-        Title="CreateNewDocumentWindow" Height="450" Width="800" Topmost="True" WindowStartupLocation="CenterScreen">
+        Title="CreateNewDocumentWindow" Height="1062" Width="2005" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
-        
+        <TextBlock x:Name="CreateNewDocumentLabel" HorizontalAlignment="Center" Margin="0,34,0,0" Text="CREATE_NEW_DOCUMENT_PLCHLD" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="1888" FontSize="30" TextAlignment="Center"/>
+        <RichTextBox x:Name="DocumentFullMessageTextBox" HorizontalAlignment="Center" Height="404" Margin="0,298,0,0" VerticalAlignment="Top" Width="1888" FontSize="25"/>
+        <TextBlock x:Name="DocumentMessageLabel" HorizontalAlignment="Center" Text="DOCUMENT_FULL_PLCHLD" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="1888" FontSize="25" TextAlignment="Center" Margin="0,239,0,0"/>
+        <TextBlock x:Name="DocumentTitleLabel" HorizontalAlignment="Center" Margin="0,106,0,0" Text="DOCUMENT_TITLE_PLCHLD" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="1888" FontSize="25" TextAlignment="Center"/>
+        <TextBox x:Name="DocumentTitleTextBox" HorizontalAlignment="Center" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1888" Height="39" FontSize="27" TextAlignment="Center" />
+        <TextBlock x:Name="RecipientsLabel" HorizontalAlignment="Center" Text="RECIPIENTS_PLACEHOLDER" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="1888" FontSize="25" TextAlignment="Center" Margin="0,747,0,0"/>
+        <TextBox x:Name="RecipientsTextBox" HorizontalAlignment="Center" Margin="0,806,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1888" Height="39" FontSize="27" TextAlignment="Center" />
+        <Button x:Name="SaveDocumentBtn" Content="SAVE_DOC_PLCHLD" HorizontalAlignment="Center" Margin="0,940,0,0" VerticalAlignment="Top" FontSize="25"/>
+
+
     </Grid>
 </Window>

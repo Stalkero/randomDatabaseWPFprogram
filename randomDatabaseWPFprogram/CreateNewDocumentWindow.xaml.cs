@@ -23,50 +23,86 @@ namespace randomDatabaseWPFprogram
         {
             InitializeComponent();
 
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
             switch (windowTheme)
             {
                 case "dark":
                     NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    CreateNewDocumentLabel.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
-                    switch (programLang)
-                    {
-                        case "polish":
+                    DocumentFullMessageTextBox.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                    DocumentFullMessageTextBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
-                            NewDocumentWindow.Title = "Stwórz nowy dokument";
-                            break;
+                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
+                    DocumentTitleLabel.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
-                        case "english":
-                            NewDocumentWindow.Title = "Create new document";
-                            break;
+                    DocumentTitleTextBox.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                    DocumentTitleTextBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
 
-                        default:
-                            break;
-                    }
+                    RecipientsLabel.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+                    RecipientsTextBox.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+                    RecipientsTextBox.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+
+                    SaveDocumentBtn.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+                    SaveDocumentBtn.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
 
                     break;
 
                 case "white":
                     NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    CreateNewDocumentLabel.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
-                    switch (programLang)
-                    {
-                        case "english":
-                            NewDocumentWindow.Title = "Create new document";
-                            break;
+                    DocumentFullMessageTextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    DocumentFullMessageTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
-                        case "polish":
-                            NewDocumentWindow.Title = "Stwórz nowy dokument";
-                            break;
+                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
-                        default:
-                            break;
-                    }
+                    DocumentTitleLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+
+                    DocumentTitleTextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    DocumentTitleTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+                    RecipientsLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    RecipientsTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    RecipientsTextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+                    SaveDocumentBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    SaveDocumentBtn.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
                     break;
                 default:
                     break;
             }
+
+            switch (programLang)
+            {
+                case "english":
+                    NewDocumentWindow.Title = "Create new document";
+                    CreateNewDocumentLabel.Text = "Create new document";
+                    DocumentMessageLabel.Text = "Contents";
+                    DocumentTitleLabel.Text = "Document title";
+                    RecipientsLabel.Text = "Recipients";
+                    SaveDocumentBtn.Content = "Save document";
+
+                    break;
+
+                case "polish":
+                    NewDocumentWindow.Title = "Stwórz nowy dokument";
+                    CreateNewDocumentLabel.Text = "Stwórz nowy dokument";
+                    DocumentMessageLabel.Text = "Treść";
+                    DocumentTitleLabel.Text = "Tytuł dokumentu";
+                    RecipientsLabel.Text = "Odbiorcy";
+                    SaveDocumentBtn.Content = "Zapisz dokument";
+
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }

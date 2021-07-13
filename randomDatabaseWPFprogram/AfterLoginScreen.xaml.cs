@@ -231,6 +231,7 @@ namespace randomDatabaseWPFprogram
         {
             CreateNewDocumentWindow newDocumentWindow = new CreateNewDocumentWindow(selectedLang,selectedTheme);
             newDocumentWindow.Show();
+            this.Close();
         }
     }
 }
