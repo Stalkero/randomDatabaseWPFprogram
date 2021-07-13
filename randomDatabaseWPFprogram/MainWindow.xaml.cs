@@ -172,7 +172,7 @@ namespace randomDatabaseWPFprogram
                         case 1:
                             int userID = Convert.ToInt32(sqlReader[1]);
 
-                            AfterLoginScreen screen = new AfterLoginScreen(userID);
+                            AfterLoginScreen screen = new AfterLoginScreen(userID,selectedLanguage);
                             screen.Show();
                             this.Close();
                             sqlConnection.Close();
