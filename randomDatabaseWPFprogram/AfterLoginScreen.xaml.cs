@@ -23,6 +23,10 @@ namespace randomDatabaseWPFprogram
     public partial class AfterLoginScreen : Window
     {
 
+        public string selectedLang { get; set; }
+        public string selectedTheme { get; set; }
+
+
         public class configFile
         {
             public string serverAddress { get; set; }
@@ -63,6 +67,9 @@ namespace randomDatabaseWPFprogram
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
+
+            
 
             try
             {
@@ -109,6 +116,10 @@ namespace randomDatabaseWPFprogram
 
                         info.name = userNameToString;
                         info.surname = userSurnameToString;
+
+
+                        selectedLang = selectedLangResultsToString;
+                        selectedTheme = selectedThemeResultsToString;
 
 
 
@@ -268,7 +279,8 @@ namespace randomDatabaseWPFprogram
 
         private void Add_new_document_BTN_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateNewDocumentWindow newDocumentWindow = new CreateNewDocumentWindow(selectedLang,selectedTheme);
+            newDocumentWindow.Show();
         }
     }
 }

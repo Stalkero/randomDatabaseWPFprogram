@@ -19,9 +19,25 @@ namespace randomDatabaseWPFprogram
     /// </summary>
     public partial class CreateNewDocumentWindow : Window
     {
-        public CreateNewDocumentWindow()
+        public CreateNewDocumentWindow(string programLang,string windowTheme)
         {
             InitializeComponent();
+
+
+
+
+            switch (windowTheme)
+            {
+                case "dark":
+                    NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    break;
+
+                case "white":
+                    NewDocumentWindow.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
