@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace randomDatabaseWPFprogram
 {
@@ -19,9 +20,15 @@ namespace randomDatabaseWPFprogram
     /// </summary>
     public partial class CreateNewDocumentWindow : Window
     {
-        public CreateNewDocumentWindow(string programLang,string windowTheme)
+        public CreateNewDocumentWindow(string programLang, string windowTheme)
         {
             InitializeComponent();
+
+            DispatcherTimer LiveTime = new DispatcherTimer();
+            LiveTime.Interval = TimeSpan.FromSeconds(1);
+            LiveTime.Tick += timer_Tick;
+            LiveTime.Start();
+
 
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
@@ -48,6 +55,8 @@ namespace randomDatabaseWPFprogram
                     SaveDocumentBtn.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
                     SaveDocumentBtn.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
 
+                    LiveTimeLabel.Foreground = new SolidColorBrush(Color.FromRgb(158, 158, 158));
+
                     break;
 
                 case "white":
@@ -57,7 +66,7 @@ namespace randomDatabaseWPFprogram
                     DocumentFullMessageTextBox.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                     DocumentFullMessageTextBox.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
-                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(0,0, 0));
+                    DocumentMessageLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
                     DocumentTitleLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
@@ -71,6 +80,8 @@ namespace randomDatabaseWPFprogram
 
                     SaveDocumentBtn.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                     SaveDocumentBtn.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+                    LiveTimeLabel.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
                     break;
                 default:
@@ -103,6 +114,11 @@ namespace randomDatabaseWPFprogram
                     break;
             }
 
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            LiveTimeLabel.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }
