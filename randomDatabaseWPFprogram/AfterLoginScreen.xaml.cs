@@ -25,6 +25,8 @@ namespace randomDatabaseWPFprogram
         public string selectedLang { get; set; }
         public string selectedTheme { get; set; }
 
+        public string userDBid { get; set; }
+
         public class configFile
         {
             public string serverAddress { get; set; }
@@ -63,6 +65,8 @@ namespace randomDatabaseWPFprogram
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
+            userDBid = userDatabaseId.ToString();
 
             try
             {
@@ -220,6 +224,7 @@ namespace randomDatabaseWPFprogram
             catch (Exception ex)
             {
                 ErrorScreen errorScreen = new ErrorScreen(ex.ToString(), "configFile", selectedLanguage);
+                errorScreen.Show();
             }
         }
 
@@ -231,7 +236,7 @@ namespace randomDatabaseWPFprogram
 
         private void Add_new_document_BTN_Click(object sender, RoutedEventArgs e)
         {
-            CreateNewDocumentWindow newDocumentWindow = new CreateNewDocumentWindow(selectedLang,selectedTheme);
+            CreateNewDocumentWindow newDocumentWindow = new CreateNewDocumentWindow(selectedLang,selectedTheme,userDBid);
             newDocumentWindow.Show();
             this.Close();
         }
