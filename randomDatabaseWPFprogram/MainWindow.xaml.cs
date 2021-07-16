@@ -200,13 +200,13 @@ namespace randomDatabaseWPFprogram
             switch (selectedLanguage)
             {
                 
-                //Please someone add translation for German
+                //Thx kindlessly
                 case "German":
-                    user_login_Label.Text = "Login";
-                    user_password_Label.Text = "Password";
-                    user_login_Button.Content = "Log in";
-                    WhiteThemeCheckBox.Content = "White theme";
-                    LoginScreenWindow.Title = "Law firm: Log in";
+                    user_login_Label.Text = "Anmelden";
+                    user_password_Label.Text = "Passwort";
+                    user_login_Button.Content = "Einloggen";
+                    WhiteThemeCheckBox.Content = "Weißes Thema";
+                    LoginScreenWindow.Title = "Anwaltskanzlei: Einloggen";
                     break;
 
                 case "English":

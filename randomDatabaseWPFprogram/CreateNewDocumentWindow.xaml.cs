@@ -112,12 +112,12 @@ namespace randomDatabaseWPFprogram
 
                 //Please someone add translation for German
                 case "german":
-                    NewDocumentWindow.Title = "Create new document";
-                    CreateNewDocumentLabel.Text = "Create new document";
-                    DocumentMessageLabel.Text = "Contents";
-                    DocumentTitleLabel.Text = "Document title";
-                    RecipientsLabel.Text = "Recipients";
-                    SaveDocumentBtn.Content = "Save document";
+                    NewDocumentWindow.Title = "Neues Dokument erstellen";
+                    CreateNewDocumentLabel.Text = "Neues Dokument erstellen";
+                    DocumentMessageLabel.Text = "Inhalt";
+                    DocumentTitleLabel.Text = "Dokument Titel";
+                    RecipientsLabel.Text = "Empfänger";
+                    SaveDocumentBtn.Content = "Dokument speichern";
 
                     break;
 

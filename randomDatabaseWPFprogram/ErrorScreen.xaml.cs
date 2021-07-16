@@ -123,11 +123,11 @@ namespace randomDatabaseWPFprogram
                             ErrorScreenWindow.Width = 800;
                             ErrorScreenWindow.Height = 650;
 
-                            ErrorScreenWindow.Title = "Failed to retrieve documents";
+                            ErrorScreenWindow.Title = "Dokumente konnten nicht abgerufen werden";
                             break;
 
                         case "configFile":
-                            ErrorScreenWindow.Title = "Error while reading/saving configuration file";
+                            ErrorScreenWindow.Title = "Fehler beim Lesen/Speichern der Konfigurationsdatei";
 
                             ErrorScreenWindow.Width = 800;
                             ErrorScreenWindow.Height = 650;
@@ -135,7 +135,7 @@ namespace randomDatabaseWPFprogram
                             break;
 
                         case "credentials":
-                            ErrorScreenWindow.Title = "Error while logging in";
+                            ErrorScreenWindow.Title = "Fehler beim Einloggen";
                             ErrorScreenWindow.Width = 210;
                             ErrorScreenWindow.Height = 100;
 
@@ -147,7 +147,7 @@ namespace randomDatabaseWPFprogram
                             ErrorScreenWindow.Width = 800;
                             ErrorScreenWindow.Height = 650;
 
-                            ErrorScreenWindow.Title = "Database error";
+                            ErrorScreenWindow.Title = "Fehler in der Datenbank";
 
                             break;
 

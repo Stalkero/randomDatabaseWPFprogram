@@ -115,7 +115,7 @@ namespace randomDatabaseWPFprogram
                         {
                             case "polish":
                                 config.language = "polish";
-                                AfterLoginScreenWindow.Title = "Polski";
+                                AfterLoginScreenWindow.Title = "";
 
                                 WelcomeMessageText.Text = $"Witaj {info.name} {info.surname}.";
                                 EditDocumentLabelTextBox.Text = "Edytuj Dokumenty";
@@ -133,7 +133,7 @@ namespace randomDatabaseWPFprogram
 
                             case "english":
                                 config.language = "english";
-                                AfterLoginScreenWindow.Title = "English";
+                                AfterLoginScreenWindow.Title = "";
 
                                 WelcomeMessageText.Text = $"Welcome {info.name} {info.surname}.";
                                 EditDocumentLabelTextBox.Text = "Edit documents";
@@ -150,20 +150,21 @@ namespace randomDatabaseWPFprogram
 
                             //Please someone add translation for German
                             case "german":
-                                config.language = "english";
+                                config.language = "german";
+                                AfterLoginScreenWindow.Title = "";
+
                                 AfterLoginScreenWindow.Title = "English";
 
-                                WelcomeMessageText.Text = $"Welcome {info.name} {info.surname}.";
-                                EditDocumentLabelTextBox.Text = "Edit documents";
+                                WelcomeMessageText.Text = $"Willkommen {info.name} {info.surname}.";
+                                EditDocumentLabelTextBox.Text = "Dokumente editieren";
 
-                                LastDocumentsDataGrid.Columns[0].Header = "Title";
-                                LastDocumentsDataGrid.Columns[1].Header = "Creation Date";
-                                LastDocumentsDataGrid.Columns[2].Header = "Recipients";
+                                LastDocumentsDataGrid.Columns[0].Header = "Titel";
+                                LastDocumentsDataGrid.Columns[1].Header = "Erstellungsdatum";
+                                LastDocumentsDataGrid.Columns[2].Header = "Empfänger";
                                 LastDocumentsDataGrid.Columns[3].Header = "DB_ID";
-                                Add_new_document_BTN.Content = "Add new documents";
-                                Change_settings_btn.Content = "Change settings";
-                                AfterLoginScreenWindow.Title = "Law Firm: Main menu";
-
+                                Add_new_document_BTN.Content = "Neue Dokumente hinzufügen";
+                                Change_settings_btn.Content = "Einstellungen ändern";
+                                AfterLoginScreenWindow.Title = "Anwaltskanzlei: Hauptmenü";
                                 break;
 
                             default:
