@@ -114,7 +114,7 @@ namespace randomDatabaseWPFprogram
 
                     break;
 
-                //Please someone add translation for German
+                //Thx kindlessly
                 case "German":
 
                     switch (ErrorType)

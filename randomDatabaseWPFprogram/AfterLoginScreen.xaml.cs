@@ -148,7 +148,7 @@ namespace randomDatabaseWPFprogram
 
                                 break;
 
-                            //Please someone add translation for German
+                            //Thx kindlessly
                             case "german":
                                 config.language = "german";
                                 AfterLoginScreenWindow.Title = "";
